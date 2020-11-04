@@ -1,0 +1,18 @@
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    console.log('submitted')
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            'csrfmiddlewaretoken': csrf[0].value,
+            'name': name.value
+        },
+        success: function(response) {
+            console.log(response)
+        },
+        error: function(error) {
+            console.log(error)
+        }
+    })
